@@ -1,0 +1,88 @@
+<div class="cuerpo" style="background:#ffffff;">
+<div class="row nmb">
+  <div class="col s12 m8 columna">
+      <div class="loading"  *ngIf="loading">
+          <mat-spinner> </mat-spinner>
+      </div>
+
+      
+     <div class="boxvideo" *ngFor="let video of videoid"  id="{{video.vid}}">
+        <h1>{{video.name}}</h1>
+        <div>
+          <video width="1200" height="auto" controls autoplay>
+            <source src="//cdn.vms.grupoz.cl/rinnolab/content/{{video.vid}}/mp4/2500k.mp4" type="video/mp4">
+          </video>
+<!--iframe name="gzplayer" [src]="url" width="100%"  height="500"  frameBorder="0" scrolling="no" allowfullscreen allowtransparency="true"></iframe>-->          
+        </div>
+        <div class="adicional">
+          <div class="col s6"><p>{{video.total_views}} Visualizaciones</p></div>
+          <div class="col s6"><p class="right-align">Categoría: {{video.category}}</p></div>
+          <div class="col s12">
+            <p>Tags:
+              <mat-chip-list>
+                <mat-chip *ngFor="let tag of video.tags" selected="true" >
+                  {{tag.name}}
+                </mat-chip>
+              </mat-chip-list>  
+            </p>
+            </div>
+          <hr>
+          <b style="display:none">{{url}}</b>
+          
+        </div>
+        <div class="col s12" style="margin-top:30px;">
+          <mat-form-field class="example-full-width textarea" style="width:100%;">
+            <textarea matInput placeholder="Escribir un comentario"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="boxcomentarios">
+            <div class="boxcomentario">
+                <div class="foto"></div>
+                <div class="texto">
+                    <p class="usuer">
+
+                    </p>
+                    <p class="comentario" style="display:none;">
+                       texto de ejemplo de un comentario en los videos.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+     </div>
+  </div>
+  <div class="col s12 m4 columna">
+    <div class="relacionados">
+        <h2>Videos relacionados:</h2>
+        <div class="col s12 nplr" *ngFor="let video of listavideos"  id="{{video.vid}}">
+            <div class="video">
+              <div class="thumb"  style="width:40%;display:inline-block;">
+                <div class="hover-efect"></div>
+                <small class="time">{{video.duration}}</small>
+                <a routerLink="/video"><img [src]="video.thumb" alt=""></a>
+              </div>
+    
+              <div class="video-info" style="width:50%; display:inline-block;">
+                <a routerLink="/video" class="title truncate">{{video.name}}</a>
+                <a class="channel-name" href="http://nilethemes.com/html/video-post/01-home.html#">{{video.category}}<span>
+                    <i class="material-icons">check_circle</i>
+                  </span>
+                </a>
+                <span class="views">
+                  <i class="material-icons">visibility</i>{{video.total_views}} visitas
+                </span>
+                <span class="date">
+                  <i class="material-icons">access_time</i>{{video.begins}}
+                </span>
+              </div>
+             
+    
+            </div>
+          </div>
+
+    </div>
+
+  </div>
+
+</div>
+</div>

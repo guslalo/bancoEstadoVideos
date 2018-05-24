@@ -1,0 +1,110 @@
+
+
+<mat-sidenav-container [class.m2app-dark]="isDarkTheme">
+<!--======= header =======-->
+  <header>
+      <div class="row nmb maxwidth">
+         
+        <div class="col s5 m6">
+            <button mat-button class="app-menu-button" (click)="sidenav.toggle()">
+                <i class="material-icons">menu</i>
+              </button>
+          <a routerLink="/" class="logo"><img src="assets/img/bancoEstado.svg" alt="" width="200"></a>
+        </div>
+        <div class="col s5 m5">
+          <div class="buscador">
+            <input type="text"/>
+            <button><i class="material-icons">search</i></button>
+          </div>
+        </div>
+        <div class="col s5 m1">
+          <button class="right" mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item disabled>
+              <mat-icon>dialpad</mat-icon>
+              <span>Ejemplo menu</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>voicemail</mat-icon>
+              <span>Ejemplo menu</span>
+            </button>
+            <button mat-menu-item >
+              <mat-icon>notifications_off</mat-icon>
+              <span>Ejemplo menu</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+  </header><!--======= header =======-->
+
+  <div class="menucategorias">
+    <ul class="maxwidth">
+      <li>
+        <a routerLink="video" class="hvr-fade">Video</a>
+      </li>
+      <li>
+        <a routerLink="video"  class="hvr-fade">Categoría test</a>
+      </li>
+      <li>
+        <a routerLink="video" class="hvr-fade">Categoría test</a>
+      </li>
+      <li>
+        <a routerLink="video" class="hvr-fade">Categoría test</a>
+      </li>
+    </ul>
+    
+  </div>
+<!--======= header =======-->
+
+  <!-- sidenav -->
+  <mat-sidenav #sidenav mode="over" class="app-sidenav" color="primary">
+    <div class="topnav">
+        <button mat-button class="app-menu-button" (click)="sidenav.toggle()">
+            <i class="material-icons">menu</i>
+        </button>
+        <a routerLink="/" class="logo"><img src="assets/img/bancoEstado.svg" alt="" width="200"></a>
+    </div>
+    
+    <mat-toolbar class="sidebar">
+      <mat-toolbar-row>
+          <mat-icon class="example-icon">build</mat-icon>
+        <span>Ejemplo link</span>  
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+          <mat-icon class="example-icon">account_circle</mat-icon>
+        <span>Ejemplo link</span>  
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <mat-icon class="example-icon">favorite</mat-icon>
+        <span>Ejemplo link</span> 
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+          <mat-icon class="example-icon">build</mat-icon>
+        <span>Ejemplo link</span>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+          <mat-icon class="example-icon">account_circle</mat-icon>
+        <span>Ejemplo link</span>  
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <mat-icon class="example-icon">favorite</mat-icon>
+        <span>Ejemplo link</span>   
+      </mat-toolbar-row>
+
+    </mat-toolbar>
+  </mat-sidenav><!-- /sidenav -->
+
+ 
+  <router-outlet></router-outlet>
+
+
+
+
+</mat-sidenav-container>

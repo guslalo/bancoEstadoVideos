@@ -1,0 +1,85 @@
+<div class="app-content cuerpo">
+    <div class="row">
+      <div class="col s12 m8">
+          <div class="loading2"  *ngIf="loading2" style="display:none;">
+              <mat-spinner> </mat-spinner>
+          </div>
+          <div  class="owl-carousel owl-theme">
+              <div  *ngFor="let video of listavideos | slice:0:2; let i=index">
+                <div class="boxdestacado">
+                    <a routerLink="/video"><img [src]="video.thumb" alt="" ></a>
+                    <div class="boxtexto">
+                        <p>Video destacadado</p>
+                    </div>
+                </div> 
+              </div>
+            </div>
+      </div>
+      <div class="col s12 m4">
+          <div class="relacionados masvistos">
+              <h2>Más vistos:</h2>
+              <div class="col s12 nplr" *ngFor="let video of listavideos"  id="{{video.vid}}">
+                  <div class="video">
+                    <div class="thumb"  style="width:40%;display:inline-block;">
+                      <div class="hover-efect"></div>
+                      <small class="time">{{video.duration}}</small>
+                      <a routerLink="/video"><img [src]="video.thumb" alt=""></a>
+                    </div>
+          
+                    <div class="video-info" style="width:50%; display:inline-block;">
+                      <a routerLink="/video" class="title truncate">{{video.name}}</a>
+                      <a class="channel-name" href="http://nilethemes.com/html/video-post/01-home.html#">{{video.category}}<span>
+                          <i class="material-icons">check_circle</i>
+                        </span>
+                      </a>
+                      <span class="views">
+                        <i class="material-icons">visibility</i>{{video.total_views}} visitas
+                      </span>
+                      <span class="date">
+                        <i class="material-icons">access_time</i>{{video.begins}}
+                      </span>
+                    </div>
+                   
+          
+                  </div>
+                </div>
+      
+          </div>
+
+      </div>
+    </div>
+   
+
+    <div class="row"> 
+
+      <div class="col s12 m4 l3" *ngFor="let video of listavideos"  id="{{video.vid}}">
+        <div class="video">
+          <div class="thumb">
+            <div class="hover-efect"></div>
+            <small class="time">{{video.duration}}</small>
+            <a routerLink="/video"><img [src]="video.thumb" alt=""></a>
+          </div>
+
+          <div class="video-info">
+            <a routerLink="/" class="title truncate">{{video.name}}</a>
+            <a class="channel-name" routerLink="/">Categoria: {{video.category}}<span>
+                          <i style="display:none;" class="material-icons">person</i></span></a>
+            <span class="views">
+              <i class="material-icons">visibility</i>{{video.total_views}} visitas
+            </span>
+            <span class="date">
+              <i class="material-icons">access_time</i>{{video.begins}}
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+   
+
+  </div>
+  <div class="loading"  *ngIf="loading">
+      <mat-spinner> </mat-spinner>
+  </div>
